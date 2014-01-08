@@ -28,14 +28,14 @@
     <div id="formsContainer">
       <div id="stage1" class="unhidden">
         <form name="getAuthCode" id="getAuthCode" action="https://github.com/login/oauth/authorize">
-          <input id="client_id" type="text" name="client_id" class="hidden"/>
+          <input id="client_id1" type="text" name="client_id" class="hidden"/>
           <input id="authCodeButton" type="submit" value="Get Authorization Code"><br/>
         </form>
       </div>
 
       <div id="stage2" class="hidden">
         <form name="getAccessToken" id="getAccessToken" method="POST" action="https://github.com/login/oauth/access_token">
-          <input id="client_id" type="text" name="client_id" class="hidden"/>
+          <input id="client_id2" type="text" name="client_id" class="hidden"/>
           <input id="client_secret" type="text" name="client_secret" class="hidden"/>
           <input id="code" type="text" name="code" class="hidden"/>
           <input type="submit" value="Get Access Token"><br/>
