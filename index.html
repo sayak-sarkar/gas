@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <!-- Meta Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Title -->
+    <title id="title">GitHub Authentication System</title>
+
+    <!-- App Specific CSS -->
+    <link rel="stylesheet" href="stylesheets/gas.css"> 
+
+    <!-- Minified Underscore JS-->
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+
+    <!-- App Specific JS-->
+    <script src="scripts/gas.js"></script>
+
+  </head>
+
+  <body>
+    
+    <h1>OAuth based Authentication System for GitHub</h1><br/>
+    <hr/><br/>
+    
+    <div id="formsContainer">
+      <div id="stage1" class="unhidden">
+        <form name="getAuthCode" id="getAuthCode" action="https://github.com/login/oauth/authorize">
+          <input id="client_id" type="text" name="client_id" class="hidden"/>
+          <input id="authCodeButton" type="submit" value="Get Authorization Code"><br/>
+        </form>
+      </div>
+
+      <div id="stage2" class="hidden">
+        <form name="getAccessToken" id="getAccessToken" method="POST" action="https://github.com/login/oauth/access_token">
+          <input id="client_id" type="text" name="client_id" class="hidden"/>
+          <input id="client_secret" type="text" name="client_secret" class="hidden"/>
+          <input id="code" type="text" name="code" class="hidden"/>
+          <input type="submit" value="Get Access Token"><br/>
+        </form>
+      </div>
+
+      <div id="stage3" class="hidden">
+        <form name="apiRequest" id="apiRequest" action="https://api.github.com/user?access_token=..." method="POST">
+          Code URL: <input type="text" name="code_url" /><br/><br/>
+          <input type="submit" value="Submit Resume"><br/>
+        </form>
+      </div>
+    
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+  </body>
+</html>
